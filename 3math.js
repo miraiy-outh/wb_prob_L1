@@ -10,13 +10,10 @@ const MathX = (function () {
     * @return {number} - n-е число Фибоначчи.
     */
     function calcFib(n) {
-        if (n <= 1) {
-            return n;
-        }
+        if (n <= 1) return n;
         // Если в массиве чисел Фибоначчи уже есть вычисленное значение, то возвращаем его, иначе - вычисляем.
-        if (fibRow[n]) {
-            return fibRow[n];
-        }
+        if (fibRow[n]) return fibRow[n];
+
         fibRow[n] = calcFib(n - 1) + calcFib(n - 2);
         return fibRow[n];
     }
@@ -28,10 +25,9 @@ const MathX = (function () {
     * @return {number[]} - Массив чисел Фибоначчи до n-го.
     */
     function getFibonacciAll(n) {
-        if (n <= 0) {
-            return undefined;
-        }
-        var result = [];
+        if (n <= 0) return undefined;
+
+        let result = [];
         for (let i = 0; i <= n; i++) {
             result.push(calcFib(i));
         }
@@ -45,9 +41,8 @@ const MathX = (function () {
     * @return {number[]} - n-е число Фибоначчи.
     */
     function getFibonacci(n) {
-        if (n <= 0) {
-            return undefined;
-        }
+        if (n <= 0) return undefined;
+
         return calcFib(n);
     }
 
@@ -59,20 +54,15 @@ const MathX = (function () {
     */
     function isPrime(num) {
         // Исключаем из проверки 1 и 2.
-        if (num === 1) {
-            return false;
-        }
-        if (num === 2) {
-            return true;
-        }
+        if (num === 1) return false;
+        if (num === 2) return true;
+
         /* Если число N равно произведению двух других, то одно из них не больше корня из N, а другое не меньше корня из N.
            Поэтому после этого значения нет смысла искать делители. */
-        var sqrtNum = Math.floor(Math.sqrt(num));
+        let sqrtNum = Math.floor(Math.sqrt(num));
 
-        for (var i = 2; i < sqrtNum + 1; i++) {
-            if (num % i === 0) {
-                return false;
-            }
+        for (let i = 2; i < sqrtNum + 1; i++) {
+            if (num % i === 0) return false;
         }
         return true;
     }
@@ -84,34 +74,28 @@ const MathX = (function () {
     * @return {number[]} - Массив простых чисел до n-го.
     */
     function getPrimeAll(n) {
-        if (n < 1) {
-            return null;
-        }
+        if (n < 1) return null;
 
         // Находим следующее нечетное число за последним в массиве простых чисел.
-        var maybePrime = primeRow[primeRow.length - 1] + 2;
+        let maybePrime = primeRow[primeRow.length - 1] + 2;
 
         // Добавляем простые числа в массив, пока не дойдем до n-го простого числа.
         while (primeRow.length < n) {
-            if (isPrime(maybePrime)) {
-                primeRow.push(maybePrime);
-            }
+            if (isPrime(maybePrime)) primeRow.push(maybePrime);
+
             maybePrime += 2;
         }
 
         // если длина массива простых чисел больше n, выводим только часть массива до n.
-        if (primeRow.length > n) {
-            return primeTmp = primeRow.slice(0, n);
-        }
+        if (primeRow.length > n) return primeTmp = primeRow.slice(0, n);
 
         return primeRow;
     }
 
     // Функция для получения N-го простого числа.
     function getPrime(n) {
-        if (n <= 1) {
-            return null;
-        }
+        if (n <= 1) return null;
+
         const primes = getPrimeAll(n);
         return primes[n - 1];
     }

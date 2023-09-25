@@ -1,12 +1,12 @@
-var num1 = 6;
-var num2 = 28;
-var num3 = 496;
-var num4 = 8128;
+let num1 = 6;
+let num2 = 28;
+let num3 = 496;
+let num4 = 8128;
 
-var num5 = 1;
-var num6 = 2;
-var num7 = 3;
-var num8 = 10;
+let num5 = 1;
+let num6 = 2;
+let num7 = 3;
+let num8 = 10;
 
 /**
  * Проверка числа на "странность".
@@ -17,20 +17,17 @@ var num8 = 10;
  */
 function isStrange(num) {
     // Начальное значение степени.
-    var p = 0;
+    let p = 0;
 
     while (num % 2 === 0) {
         num = num / 2;
         p++; // Прибавляем степень для дальнейшей проверки получившегося числа.
     }
 
-    if (num === 1) {
-        return false;
-    }
+    if (num === 1) return false;
 
-    if (num === 2 ** (p + 1) - 1) {
-        return isPrime(num);
-    }
+    if (num === 2 ** (p + 1) - 1) return isPrime(num);
+
     return false;
 }
 
@@ -42,20 +39,15 @@ function isStrange(num) {
  */
 function isPrime(num) {
     // Исключаем из проверки 1 и 2.
-    if (num === 1) {
-        return false;
-    }
-    if (num === 2) {
-        return true;
-    }
+    if (num === 1) return false;
+    if (num === 2) return true;
+
     /* Если число N равно произведению двух других, то одно из них не больше корня из N, а другое не меньше корня из N.
        Поэтому после этого значения нет смысла искать делители. */
-    var sqrtNum = Math.floor(Math.sqrt(num));
+    let sqrtNum = Math.floor(Math.sqrt(num));
 
-    for (var i = 2; i < sqrtNum + 1; i++) {
-        if (num % i === 0) {
-            return false;
-        }
+    for (let i = 2; i < sqrtNum + 1; i++) {
+        if (num % i === 0) return false;
     }
     return true;
 }

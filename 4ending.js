@@ -1,5 +1,5 @@
-massive1 = ['сообщение', 'сообщения', 'сообщений'];
-massive2 = ['пользователь', 'пользователя', 'пользователей'];
+const massive1 = ['сообщение', 'сообщения', 'сообщений'];
+const massive2 = ['пользователь', 'пользователя', 'пользователей'];
 
 const ChangeEndingModule = (function () {
     /**
@@ -16,28 +16,17 @@ const ChangeEndingModule = (function () {
     * @return {string} - Слово в правильной форме.
     */
     function changeEnding(num, wordsMassive) {
-        if (wordsMassive.length < 3) {
-            return undefined;
-        }
-        if (num < 0) {
-            num = num - 2 * num; // если число отрицательное, делаем его положительным
-        }
+        if (wordsMassive.length < 3) return undefined;
+
+        if (num < 0) num = num - 2 * num; // если число отрицательное, делаем его положительным
 
         num = num % 100;
-        if ((num >= 11 && num <= 19)) {
-            return wordsMassive[2];
-        }
+        if ((num >= 11 && num <= 19)) return wordsMassive[2];
         else {
             num = num % 10;
-            if (num === 1) {
-                return wordsMassive[0];
-            }
-            if (num >= 2 && num <= 4) {
-                return wordsMassive[1];
-            }
-            if (num >= 5 || num === 0) {
-                return wordsMassive[2];
-            }
+            if (num === 1) return wordsMassive[0];
+            if (num >= 2 && num <= 4) return wordsMassive[1];
+            if (num >= 5 || num === 0) return wordsMassive[2];
         }
 
         return undefined;

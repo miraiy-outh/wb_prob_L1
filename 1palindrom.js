@@ -1,9 +1,9 @@
-var str1 = 'madam';
-var str2 = "Nora. Omar. Ramo. Aron";
-var str3 = "- Madam, I'm Adam.";
-var str4 = "аргентина манит негра";
-var str5 = 'abccba';
-var str6 = "клубника";
+let str1 = 'madam';
+let str2 = "Nora. Omar. Ramo. Aron";
+let str3 = "- Madam, I'm Adam.";
+let str4 = "аргентина манит негра";
+let str5 = 'abccba';
+let str6 = "клубника";
 
 
 /**
@@ -14,13 +14,13 @@ var str6 = "клубника";
  */
 function isPalindrom(str) {
     // Убираем знаки препинания и пробелы, приводим к нижнему регистру.
-    strFiltered = str.replace(/[.,\/#!$%\^&\*;:{}=\-_`'~()]/g, '').replace(/\s+/g, '').toLowerCase();
-    middle = Math.floor(strFiltered.length / 2);
+    let strFiltered = str.replace(/[.,\/#!$%\^&\*;:{}=\-_`'~()]/g, '').replace(/\s+/g, '').toLowerCase();
+    let middle = Math.floor(strFiltered.length / 2);
 
     // Начальные значения для проверки в цикле.
-    leftLetter = '';
-    rightLetter = '';
-    i = 0;
+    let leftLetter = '';
+    let rightLetter = '';
+    let i = 0;
 
     // Пробегаем по строке с 2 сторон, пока не дойдем до середины строки или не встретим различие.
     while (i < middle && leftLetter === rightLetter) {
@@ -30,9 +30,7 @@ function isPalindrom(str) {
     }
 
     // Если дошли до середины, значит слово - палиндром.
-    if (i === middle) {
-        return true;
-    }
+    if (i === middle) return true;
     return false;
 }
 
