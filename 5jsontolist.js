@@ -1,3 +1,23 @@
+/**
+* Получение односвязного списка из JSON.
+* 
+* @param {Object[]} massive - Массив объектов сотрудников.
+* @return {number|string[]} - Слово в правильной форме.
+*/
+function convertJSONToList(massive) {
+    if (!massive || massive.length === 0) return null;
+
+    let list = { ...massive[0], next: null };
+    let currentNode = list; // Текущий узел.
+
+    // Проходим по массиву, добавляем в текущий узел поля текущего объекта и next, меняем текущий узел на next.
+    for (let i = 1; i < massive.length; i++) {
+        currentNode.next = { ...massive[i], next: null };
+        currentNode = currentNode.next;
+    }
+    return list;
+}
+
 const employees = [
     {
         "id": 1,
@@ -35,16 +55,5 @@ const employees = [
         "managerId": 2
     }
 ]
-function convertJSONToList(massive) {
-    if (!massive || massive.length === 0) return null;
-
-    let list = { ...massive[0], next: null };
-    let currentNode = list;
-    for (let i = 1; i < massive.length; i++) {
-        currentNode.next = { ...massive[i], next: null };
-        currentNode = currentNode.next;
-    }
-    return list;
-}
 
 console.log(convertJSONToList(employees));

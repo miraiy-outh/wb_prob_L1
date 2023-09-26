@@ -1,6 +1,3 @@
-const massive1 = ['сообщение', 'сообщения', 'сообщений'];
-const massive2 = ['пользователь', 'пользователя', 'пользователей'];
-
 const ChangeEndingModule = (function () {
     /**
     * Получение правильной формы числа в зависимости от количества.
@@ -34,6 +31,9 @@ const ChangeEndingModule = (function () {
 
     return { changeEnding };
 })();
+
+const massive1 = ['сообщение', 'сообщения', 'сообщений'];
+const massive2 = ['пользователь', 'пользователя', 'пользователей'];
 
 console.log(112, ChangeEndingModule.changeEnding(112, massive1));
 console.log(-112, ChangeEndingModule.changeEnding(-112, massive1));

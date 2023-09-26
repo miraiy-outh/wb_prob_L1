@@ -1,11 +1,3 @@
-let str1 = 'madam';
-let str2 = "Nora. Omar. Ramo. Aron";
-let str3 = "- Madam, I'm Adam.";
-let str4 = "аргентина манит негра";
-let str5 = 'abccba';
-let str6 = "клубника";
-
-
 /**
  * Проверка строки на палиндром.
  *
@@ -33,6 +25,13 @@ function isPalindrom(str) {
     if (i === middle) return true;
     return false;
 }
+
+let str1 = 'madam';
+let str2 = "Nora. Omar. Ramo. Aron";
+let str3 = "- Madam, I'm Adam.";
+let str4 = "аргентина манит негра";
+let str5 = 'abccba';
+let str6 = "клубника";
 
 console.log(isPalindrom(str1), str1); // true
 console.log(isPalindrom(str2), str2); // true

@@ -1,13 +1,3 @@
-let num1 = 6;
-let num2 = 28;
-let num3 = 496;
-let num4 = 8128;
-
-let num5 = 1;
-let num6 = 2;
-let num7 = 3;
-let num8 = 10;
-
 /**
  * Проверка числа на "странность".
  * Проверяем по теореме Евклида-Эйлера - если число представимо в виде (2^(p-1) * (2^p - 1)) и (2^p - 1) - простое, то число странное.
@@ -51,6 +41,16 @@ function isPrime(num) {
     }
     return true;
 }
+
+let num1 = 6;
+let num2 = 28;
+let num3 = 496;
+let num4 = 8128;
+
+let num5 = 1;
+let num6 = 2;
+let num7 = 3;
+let num8 = 10;
 
 console.log(isStrange(num1), num1); // true
 console.log(isStrange(num2), num2); // true
