@@ -47,6 +47,6 @@ const obj = {
 
 const jsonString = convertJsonToString(obj);
 
-console.log('Результат выполнения функции:        ', jsonString); // {"name":"John","age":30}
+console.log('Результат выполнения функции:        ', jsonString);
 
 console.log('Результат выполнения JSON.stringify: ', JSON.stringify(obj));
