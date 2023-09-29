@@ -1,0 +1,53 @@
+.widgets__container {
+    width: 700px;
+    height: 700px;
+    background-color: rgb(20, 20, 20);
+    overflow-y: scroll;
+    border-radius: 20px;
+}
+
+/* Скрываем скроллбар */
+.widgets__container::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+.widgets__container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.widgets__container::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border: none;
+}
+
+.widgets {
+    padding: 20px;
+
+}
+
+.post {
+    flex-direction: column;
+    background-color: rgb(34, 34, 34);
+    padding: 20px;
+    margin: 20px;
+}
+
+.text {
+    font-family: 'Tahoma';
+    font-size: 14px;
+    color: white;
+    margin-top: 0;
+}
+
+.img__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.img__container>* {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
