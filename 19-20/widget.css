@@ -6,8 +6,7 @@
     border-radius: 20px;
 }
 
-/* Скрываем скроллбар */
-.widgets__container::-webkit-scrollbar {
+/* .widgets__container::-webkit-scrollbar {
     width: 0.5em;
 }
 
@@ -23,7 +22,7 @@
 .widgets {
     padding: 20px;
 
-}
+} */
 
 .post {
     flex-direction: column;

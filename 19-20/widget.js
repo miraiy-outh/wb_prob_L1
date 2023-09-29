@@ -1,5 +1,19 @@
 const widgets = document.querySelector('.widgets');
 let isFirtTimeLoad = true; // Переменная, показывающая, что пользователь запустил виджет после обновления страницы.
+const maxSizeLocalStorage = 5; // Максимальный размер localStorage В МБ (На самом деле максимальный размер 5.27 МБ).
+
+
+/**
+* Функция вывода объема занимаемой памяти.
+*/
+function writeLocalDataInfo() {
+    let tmpSize = 0;
+    if (localStorage.postsData != undefined) {
+        tmpSize = Math.ceil(JSON.stringify(localStorage).length / (1024 * 1024) * 100) / 100;
+    }
+
+    console.log(`Всего занято ${tmpSize} МБ данных из ${maxSizeLocalStorage} МБ возможных.`)
+}
 
 /**
 * Обработка запроса на созданный сервер.
@@ -32,7 +46,7 @@ function getData(offset) {
             }
             else {
                 // Если объем занятой памяти localStorage больше критического (в МБ), то удаляем первые 10 записей.
-                if (JSON.stringify(localStorage).length / (1024 * 1024) > 5) {
+                if (JSON.stringify(localStorage).length / (1024 * 1024) >= maxSizeLocalStorage) {
                     localStorage.setItem('postsData', JSON.stringify((JSON.parse(localStorage.postsData)).slice(10)))
                 }
 
@@ -41,6 +55,7 @@ function getData(offset) {
             }
 
             isOffset = true; // Пользователь пока не прокрутил до конца виджета.
+            writeLocalDataInfo();
             createPosts(arrayPostsLocal); // Отрисовываем данные в HTML.
         })
         .catch(error => {
