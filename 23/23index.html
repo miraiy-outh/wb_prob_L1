@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password</title>
+</head>
+
+<body
+    style="display: flex; flex-direction: column; gap: 100px; align-items: flex-start; margin-top: 250px; margin-left: 200px;">
+    <input type="text" id="pass" placeholder="Введите пароль"
+        style="position: relative; font-size: 20px; height: 50px; width: 500px; padding: 0 25px;">
+    <label for="pass" id="label-pass"
+        style="position: absolute; top: 100px; display: none; font-size: 20px; color: red; width: 500px; word-wrap: normal;"></label>
+    <p id="complexity" style="position:absolute; top: 300px; display: none; font-size: 20px;"></p>
+    <button id="button-pass" style="font-size: 20px; height: 50px; left: 200px; padding: 0 25px;">Проверить сложность
+        пароля</button>
+    <script src="23password.js"></script>
+</body>
+
+</html>
